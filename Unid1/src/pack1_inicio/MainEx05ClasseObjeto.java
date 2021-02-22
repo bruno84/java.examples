@@ -24,8 +24,8 @@ public class MainEx05ClasseObjeto
 		System.out.println();
 		
 		// Passagem de parametro: sempre por valor
-		// STACK: é a cópia do valor que está na stack. OK.
-		// HEAP: com a cópia do valor da referência do objeto (que fica na stack), acessamos o objeto na heap.
+		// STACK: Ã© a cÃ³pia do valor que estÃ¡ na stack. OK.
+		// HEAP: com a cÃ³pia do valor da referÃªncia do objeto (que fica na stack), acessamos o objeto na heap.
 		
 		int num = 10;
 		System.out.println("antes  =   " + num );

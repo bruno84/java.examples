@@ -13,18 +13,16 @@ public class MainEx03EstruturasCondicionais
 	 
 
 	    // IF SIMPLES
-	    if(media >= 7) 
-		{
+	    if(media >= 7) {
 	    	System.out.println("Aprovado");
 		}
-	    else 
-		{
+	    else {
 	    	System.out.println("Recuperacao ou Reprovado?"); 
-		}
+	    }
 	    System.out.println("");
 	    
 	    
-	    // IF SIMPLES. OBS: else é opcional
+	    // IF SIMPLES. OBS: else Ã© opcional
 	    if(media >= 7) 
 		{
 	    	System.out.println("Aprovado");
@@ -66,7 +64,7 @@ public class MainEx03EstruturasCondicionais
 	    System.out.println("");
 	    
 	    
-	    // OPERADOR CONDICIONAL TERNÁRIO
+	    // OPERADOR CONDICIONAL TERNÃRIO
 	    String str = (media >= 7) ? "Aprovado" : "Recuperacao ou Reprovado";
 	    System.out.println("str = " + str + "\n");
 	    

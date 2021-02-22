@@ -42,7 +42,7 @@ public class MainEx04EstruturasRepeticao
 	    	System.out.print(" " + cont); 
 	    }
 	    
-
+	    System.out.print("\n" + cont + "\n"); 
 	}
 
 }

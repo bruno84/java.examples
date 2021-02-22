@@ -67,7 +67,7 @@ public class MainEx02Operadores
 	    	System.out.println("Diferentes"); 
 	    } 
 
-	    if(pai == mae) { 
+	    if(pai == mae) {					// CUIDADO! NÃO USAR APENAS = 
 	    	System.out.println("Iguais"); 
 	    } 
 	        

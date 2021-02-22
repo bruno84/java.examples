@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class MainEx01TiposEntradaSaida 
 {
-	private static Scanner in = new Scanner( System.in ); 
+	private static Scanner scanner = new Scanner( System.in ); 
 	
 	
 	public static void main(String[] args) 
 	{		
 		// BYTE
 		System.out.print("Informe um byte: ");
-		byte numByte = in.nextByte();
+		byte numByte = scanner.nextByte();
 		System.out.println("numByte = " + numByte);
 		
 		String strByte1 = Integer.toBinaryString(numByte);
@@ -32,13 +32,13 @@ public class MainEx01TiposEntradaSaida
 
 		// SHORT
 		System.out.print("Informe um short: ");
-		short numShort = in.nextShort();
+		short numShort = scanner.nextShort();
 		System.out.println("numShort = " + numShort);
 		System.out.printf("printf = %d \n\n", numShort);
 		
 		// INT
 		System.out.print("Informe um int: ");
-		int numInt = in.nextInt();
+		int numInt = scanner.nextInt();
 		System.out.println("numInt = " + numInt);
 		System.out.printf("printf = %d \n", numInt);
 		
@@ -52,13 +52,13 @@ public class MainEx01TiposEntradaSaida
 		
 		// LONG
 		System.out.print("Informe um long: ");
-		long numLong = in.nextLong();
+		long numLong = scanner.nextLong();
 		System.out.println("numLong = " + numLong);
 		System.out.printf("printf = %d \n\n", numLong);
 		
 		// FLOAT
 		System.out.print("Informe um float: ");
-		float numFloat = in.nextFloat();
+		float numFloat = scanner.nextFloat();
 		System.out.println("numFloat = " + numFloat);
 		System.out.printf("printf = %f \n", numFloat);
 		System.out.printf("printf = %.2f \n", numFloat);
@@ -70,9 +70,10 @@ public class MainEx01TiposEntradaSaida
 		
 		// DOUBLE
 		System.out.print("Informe um double: ");
-		double numDouble = in.nextDouble();
+		double numDouble = scanner.nextDouble();
 		System.out.println("numDouble = " + numDouble);
 		System.out.printf("printf = %e \n\n", numDouble);
+		scanner.nextLine(); // limpa buffer (enter)
 		
 		// CHAR
 		System.out.print("Informe um char: ");
@@ -84,24 +85,25 @@ public class MainEx01TiposEntradaSaida
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		in.nextLine(); // limpa buffer (enter)
+		scanner.nextLine(); // limpa buffer (enter)
 		
 		// BOOLEAN
-		System.out.print("Informe um boolean: (true ou false)");
-		boolean bool1 = in.nextBoolean();
+		System.out.print("Informe um boolean (true ou false): ");
+		boolean bool1 = scanner.nextBoolean();
 		System.out.println("bool1 = " + bool1);
 		System.out.printf("printf = %b \n\n", bool1);
+		scanner.nextLine(); // limpa buffer (enter)
 		
-		// STRING sem espaço
+		// STRING sem espaÃ§o
 		System.out.print("Informe seu primeiro nome: ");
-		String str1 = in.next();
-		in.nextLine(); // limpa buffer (enter)
+		String str1 = scanner.next();
+		scanner.nextLine(); // limpa buffer (enter)
 		System.out.println("str1 = " + str1);
 		System.out.printf("printf = %s \n\n", str1);
 		
-		// STRING com espaço
+		// STRING com espaÃ§o
 		System.out.print("Informe seu nome completo: ");
-		String str2 = in.nextLine();
+		String str2 = scanner.nextLine();
 		System.out.println("str2 = " + str2);
 		System.out.printf("printf = %s \n\n", str2);
 				
