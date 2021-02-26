@@ -3,21 +3,19 @@ package pack1_inicio;
 import java.io.Serializable;
 
 /**
- * Classe usada nos váris exemplos.
+ * Classe usada nos vï¿½ris exemplos.
  */
-public class MyClass implements Serializable
+public class MyClass implements Serializable, Comparable<MyClass>
 {
 	private static final long serialVersionUID = 2424749172434097388L;
 	
 	// Atributos
 	int inteiro;
-	double valor;
 	String nome;
 	
 	// Construtor
-	public MyClass(int inteiro, double valor, String nome) {
+	public MyClass(int inteiro, String nome) {
 		this.inteiro = inteiro;
-		this.valor = valor;
 		this.nome = nome;
 	}
 
@@ -30,13 +28,6 @@ public class MyClass implements Serializable
 		this.inteiro = inteiro;
 	}
 
-	public double getValor() {
-		return valor;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
 
 	public String getNome() {
 		return nome;
@@ -46,13 +37,44 @@ public class MyClass implements Serializable
 		this.nome = nome;
 	}
 	
+		
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + inteiro;
+		return result;
+	}
+
+
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MyClass other = (MyClass) obj;
+		if (inteiro != other.inteiro)
+			return false;
+		return true;
+	}
+
 	@Override
 	public String toString() {
-		return "MyClass ["
+		return "MyClass["
 				+ "inteiro=" + inteiro + ", "
-				+ "valor=" + valor + ", " 
 				+ (nome != null ? "nome=" + nome : "")
 				+ "] ";
 	}
+
+	@Override
+	public int compareTo(MyClass other) {
+		return Integer.compare(this.inteiro, other.inteiro);
+	}
+
+
 	
 }

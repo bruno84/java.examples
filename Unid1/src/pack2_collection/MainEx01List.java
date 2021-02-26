@@ -1,6 +1,7 @@
 package pack2_collection;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
@@ -60,6 +61,8 @@ public class MainEx01List
         System.out.println(list1); 
         System.out.println();
         
+        Collections.sort(list1);	// ordena a lista. Se primitivo considera a natureza do tipo. Se objeto deve-se sobrescrever o método compareTo.
+        
         for (String string : list1) {
 			System.out.println(string);
 		}
@@ -107,6 +110,7 @@ public class MainEx01List
         System.out.println(stack.pop());  // remove elemento do topo
         System.out.println(stack);
         System.out.println();
+        
 	}
 
 }

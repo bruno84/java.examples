@@ -23,9 +23,9 @@ public class MainEx11ArquivoBinario
 		
 		ArrayList<Object> listInput  = new ArrayList<Object>();
 		
-		MyClass obj1 = new MyClass(10, 1.1, "Ana");
-		MyClass obj2 = new MyClass(20, 2.1, "Bruno");
-		MyClass obj3 = new MyClass(30, 3.1, "Clara");
+		MyClass obj1 = new MyClass(10, "Ana");
+		MyClass obj2 = new MyClass(20, "Bruno");
+		MyClass obj3 = new MyClass(30, "Clara");
 
 		listInput.add(obj1);
 		listInput.add(obj2);
