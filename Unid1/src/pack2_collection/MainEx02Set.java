@@ -27,7 +27,7 @@ public class MainEx02Set
 		Set<MyClass> hashSet = new HashSet<MyClass>();
 		hashSet.add( new MyClass(0, "zero") );
 		hashSet.add( new MyClass(1, "um") );
-		hashSet.add( new MyClass(1, "um") );		// Não será adicionado pois a chave é o atributo "inteiro" definido em hashCode() em MyClass. 
+		hashSet.add( new MyClass(1, "ummmm") );		// Não será adicionado pois a chave é o atributo "inteiro" definido em hashCode() em MyClass. 
 		hashSet.add( new MyClass(2, "dois") );
 		hashSet.add( new MyClass(3, "tres") );
 		hashSet.add( new MyClass(4, "quatro") );

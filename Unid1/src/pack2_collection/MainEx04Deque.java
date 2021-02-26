@@ -1,9 +1,59 @@
 package pack2_collection;
 
-public class MainEx04Deque {
+import java.util.Deque;
+import java.util.LinkedList;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public class MainEx04Deque 
+{
+	/**
+	 * Deque
+	 * Adiciona a liberdade de manipular o início e o fim da estrutura.
+	 */
+	public static void main(String[] args) 
+	{
+		/**
+		 * LinkedList
+		 * Conserva a ordem de inserção.
+		 */
+		System.out.println("LinkedList");
+        Deque<String> linkedList = new LinkedList<String>(); 
+		
+        linkedList.add("fim1"); 			// insere no fim
+        linkedList.addLast("fim2"); 		// insere no fim
+        linkedList.addFirst("inicio1"); 	// insere no inicio
+        linkedList.addFirst("inicio2"); 	// insere no inicio
+        linkedList.addFirst("inicio3"); 	// insere no inicio
+        
+		System.out.println(linkedList); 
+		System.out.println("size: " + linkedList.size()); 
+		
+		String str = linkedList.peek(); 			// apenas consulta inicio
+		System.out.println("inicio: " + str); 		
+		
+		str = linkedList.peekFirst(); 				// apenas consulta inicio
+		System.out.println("inicio: " + str); 		
+		
+		str = linkedList.peekLast(); 				// apenas consulta fim
+		System.out.println("final:  " + str); 		
+		System.out.println();	
+		
+		System.out.println(linkedList); 
+		System.out.println("size: " + linkedList.size()); 
+		System.out.println();
+		
+		str = linkedList.remove(); 							// remove do inicio
+		System.out.println("removed inicio: " + str); 		
+		
+		str = linkedList.removeFirst(); 					// remove do inicio
+		System.out.println("removed inicio: " + str); 	
+		
+		str = linkedList.removeLast(); 						// remove do fim
+		System.out.println("removed final:  " + str); 	
+		
+		System.out.println();	
+		System.out.println(linkedList); 
+		System.out.println("size: " + linkedList.size()); 
+		System.out.println();	
 
 	}
 
