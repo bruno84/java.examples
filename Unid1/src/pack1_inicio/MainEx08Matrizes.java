@@ -49,15 +49,16 @@ public class MainEx08Matrizes
 		
 		System.out.println("\n Imprimindo com loop...");
 		exibirMatriz(matriz);	
-		
-		
 	}
 	
 	
 	private static void exibirMatriz(int[][] m) 
 	{
 		int linhas = m.length;
+		System.out.println("linhas = " + linhas);
+		
 		int colunas = m[0].length;
+		System.out.println("colunas = " + colunas);
 				
 		for (int l=0; l<linhas; l++) 
 		{

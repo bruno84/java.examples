@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainEx11ArquivoBinario 
 {
@@ -21,7 +22,7 @@ public class MainEx11ArquivoBinario
 		
 		// ESCRITA
 		
-		ArrayList<Object> listInput  = new ArrayList<Object>();
+		List<Object> listInput  = new ArrayList<Object>();
 		
 		MyClass obj1 = new MyClass(10, "Ana");
 		MyClass obj2 = new MyClass(20, "Bruno");
@@ -42,13 +43,14 @@ public class MainEx11ArquivoBinario
 		// LEITURA
 		
 		try {
-			ArrayList<Object> listOutput = leitor(path);
+			List<Object> listOutput = leitor(path);
 			
 			for (Object object : listOutput) 
 			{
 				MyClass obj = (MyClass) object;
 				System.out.print( obj.toString() );
 			}
+			
 		} catch (IOException e) {
 			System.out.println("Erro na leitura: IOException");
 			e.printStackTrace();
@@ -60,27 +62,8 @@ public class MainEx11ArquivoBinario
 	}
 
 
-
-
-	@SuppressWarnings("unchecked")
-	public static ArrayList<Object> leitor(String path) throws IOException, ClassNotFoundException 
-	{
-		ArrayList<Object> lista = new ArrayList<Object>();
-		
-		File file = new File(path);
-	    
-		if (file.exists()) 
-		{
-			ObjectInputStream objInput = new ObjectInputStream(new FileInputStream(file));
-			lista = (ArrayList<Object>)objInput.readObject();
-	        objInput.close();
-		}
-		
-		return lista;
-	}
-
 	
-	public static void escritor(String path, ArrayList<Object> lista) throws IOException 
+	public static void escritor(String path, List<Object> lista) throws IOException 
 	{
 		File file = new File(path);
     	file.delete();
@@ -91,6 +74,30 @@ public class MainEx11ArquivoBinario
         objOutput.writeObject(lista);
         objOutput.close();
 	}
+	
+	
+	
+
+
+	@SuppressWarnings("unchecked")
+	public static List<Object> leitor(String path) throws IOException, ClassNotFoundException 
+	{
+		List<Object> lista = new ArrayList<Object>();
+		
+		File file = new File(path);
+	    
+		if(file.exists()) 
+		{
+			ObjectInputStream objInput = new ObjectInputStream(new FileInputStream(file));
+			lista = (ArrayList<Object>) objInput.readObject();
+	        objInput.close();
+		}
+		
+		return lista;
+	}
+
+	
+
 		
 }
 

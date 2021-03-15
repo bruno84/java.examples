@@ -3,16 +3,18 @@ package pack2_collection;
 import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * Deque
+ * Adiciona a liberdade de manipular o início e o fim da estrutura.
+ * @author bruno.monteiro
+ */
 public class MainEx04Deque 
 {
-	/**
-	 * Deque
-	 * Adiciona a liberdade de manipular o início e o fim da estrutura.
-	 */
 	public static void main(String[] args) 
 	{
 		/**
 		 * LinkedList
+		 * Internamente utiliza uma lista duplamente encadeada.
 		 * Conserva a ordem de inserção.
 		 */
 		System.out.println("LinkedList");
@@ -20,6 +22,7 @@ public class MainEx04Deque
 		
         linkedList.add("fim1"); 			// insere no fim
         linkedList.addLast("fim2"); 		// insere no fim
+        
         linkedList.addFirst("inicio1"); 	// insere no inicio
         linkedList.addFirst("inicio2"); 	// insere no inicio
         linkedList.addFirst("inicio3"); 	// insere no inicio

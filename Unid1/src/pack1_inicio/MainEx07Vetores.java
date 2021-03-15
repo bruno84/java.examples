@@ -24,6 +24,8 @@ public class MainEx07Vetores
 		System.out.println( vetor[1] );  	// Sera impresso 20
 		System.out.println( vetor[2] );		// Sera impresso 30
 		
+		System.out.println("size = " + size);
+				
 		System.out.println("\n Imprimindo com loop...");
 		exibirVetor(vetor);
 		
@@ -55,7 +57,7 @@ public class MainEx07Vetores
 		System.out.println(vetor);
 		System.out.println(vetorCopia);
 		
-		vetor[0] = 1000; 
+		vetorCopia[0] = 9999; 
 		
 		System.out.println("\n Imprimindo com loop... vetor");
 		exibirVetor(vetor);

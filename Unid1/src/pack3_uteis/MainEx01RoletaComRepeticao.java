@@ -12,7 +12,6 @@ public class MainEx01RoletaComRepeticao
 		for (int i = 0; i < array.length; i++) {
 			System.out.println( array[i] );
 		}
-		
 	}
 	
 	public static int[] roletaComRepeticao(int vi, int vf)

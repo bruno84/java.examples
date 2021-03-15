@@ -4,29 +4,31 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * Queue
+ * Interface que embasa estruturas de fila. 
+ * Permite elementos com repetição de chaves.
+ * Facilita a inserção de elementos no fim e a remoção/acesso de elementos no inicio da fila.
+ * @author bruno.monteiro
+ */
 public class MainEx03Queue 
-{
-	/**
-	 * Queue
-	 * Interface que embasa estruturas de fila. 
-	 * Permite elementos com repetição de chaves.
-	 * Facilita a inserção de elementos no fim e a remoção/acesso de elementos no inicio da fila.
-	 */
-	
+{	
 	public static void main(String[] args) 
 	{
 		/**
 		 * LinkedList
+		 * Internamente utiliza uma lista duplamente encadeada.
 		 * Conserva a ordem de inserção.
 		 */
 		System.out.println("LinkedList");
-        Queue<String> linkedList = new LinkedList<String>(); 
+        Queue<String> linkedList = new LinkedList<String>();
 		
         linkedList.add("zzz"); 		// insere no fim
-        linkedList.add("aaa"); 
-        linkedList.add("ttt"); 
-        linkedList.add("bbb"); 
-        linkedList.add("ccc"); 
+        linkedList.add("aaa"); 		// insere no fim
+        linkedList.add("ttt"); 		// insere no fim
+        linkedList.add("ttt"); 		// insere no fim	permite repetição
+        linkedList.add("bbb"); 		// insere no fim
+        linkedList.add("ccc"); 		// insere no fim
         
 		System.out.println(linkedList); 
 		System.out.println("size: " + linkedList.size()); 
@@ -51,25 +53,23 @@ public class MainEx03Queue
         Queue<String> priorityQueue = new PriorityQueue<String>(); 
 		
         priorityQueue.add("zzz"); 		// insere no fim
-        priorityQueue.add("aaa"); 
-        priorityQueue.add("ttt"); 
-        priorityQueue.add("ttt"); 		// permite repetição
-        priorityQueue.add("bbb"); 
-        priorityQueue.add("ccc"); 
+        priorityQueue.add("aaa"); 		// insere no fim
+        priorityQueue.add("ttt"); 		// insere no fim
+        priorityQueue.add("ttt"); 		// insere no fim // permite repetição
+        priorityQueue.add("bbb"); 		// insere no fim 
+        priorityQueue.add("ccc"); 		// insere no fim 
         
 		System.out.println(priorityQueue); 
 		System.out.println("size: " + priorityQueue.size()); 
 		
 		str = priorityQueue.peek(); 				// apenas consulta inicio
-		System.out.println("inicio: " + str); 		// zzz
+		System.out.println("inicio: " + str); 		
 		
 		str = priorityQueue.remove(); 				// remove do inicio
-		System.out.println("removed: " + str); 		// zzz
-		
+		System.out.println("removed: " + str); 		
+				
 		System.out.println(priorityQueue); 
 		System.out.println("size: " + priorityQueue.size()); 
-		
-		
 	}
 
 }

@@ -6,10 +6,11 @@ public class MainEx09Strings
 	public static void main(String[] args) 
 	{
 		/*
-		 * ObservaÁ„o: Strings em Java s„o suportados internamente por array de char. 
-		 * Da mesma forma que arrays sao imutaveis, Strings tambÈm s„o. 
-		 * Portanto, sempre que uma String È alterada, uma nova String È criada.
-		 * Os mÈtodos que produzem alteraÁ„o na string devem ter uma atribuiÁ„o.
+		 * Observa√ß√£o1: Strings em Java s√£o suportados internamente por array de char. 
+		 * Da mesma forma que arrays sao imutaveis, Strings tamb√©m s√£o. 
+		 * Portanto, sempre que uma String √© alterada, uma nova String √© criada.
+		 * 
+		 * Observa√ß√£o2: Os m√©todos que produzem altera√ß√£o na string devem ter usar atribui√ß√£o.
 		 */
 		String str1 = "Bruna";
 		System.out.println(str1.getBytes());
@@ -36,11 +37,12 @@ public class MainEx09Strings
 		
 		System.out.println( str1.toUpperCase() );
 		
-		str1 = " B r u n o ";
+		str1 = "  B r u n o  ";
 		str1 = str1.trim();				// nao remove no meio
 		System.out.println( str1 );  
 		
 		System.out.println( str1.replace(" ", "") );
+		System.out.println( str1 ); 
 		
 		str1 = str1.concat(" Monteiro");
 		System.out.println( str1 );
@@ -52,9 +54,9 @@ public class MainEx09Strings
 		System.out.println("\n");
 		
 		/*
-		 * StringBuffer È uma semelhante a String, porÈm È mut·vel.
-		 * … indicado para cen·rios com muitas alteraÁıes, devido ganho de eficiÍncia.
-		 * Os mÈtodos que produzem alteraÁ„o na string n„o precisam de atribuiÁ„o.
+		 * StringBuffer √© uma semelhante a String, por√©m √© mut√°vel.
+		 * √â indicado para cen√°rios com muitas altera√ß√µes, devido ganho de efici√™ncia.
+		 * Os m√©todos que produzem altera√ß√£o na string n√£o precisam de atribui√ß√£o.
 		 */
 		StringBuffer sb1 = new StringBuffer("Bruno");
 		System.out.println(sb1.hashCode());
@@ -64,7 +66,7 @@ public class MainEx09Strings
 		System.out.println(sb1.hashCode());
 		System.out.println(sb1.length());
 
-		System.out.println(sb1.insert(5, " de Sousa"));
+		System.out.println( sb1.insert(5, " de Sousa") );
 		
 		System.out.println( sb1.delete(5, 7) );
 				

@@ -7,17 +7,16 @@ import java.util.TreeMap;
 
 import pack1_inicio.MyClass;
 
+/**
+ * Map
+ * Estrutura em que cada elemento é composto por um par <chave, valor>.
+ * Não pode haver repetição de elementos com a mesma chave.
+ * @author bruno.monteiro
+ */
 public class MainEx05Map 
-{
-	/**
-	 * Map
-	 * Estrutura em que cada elemento é composto por um par <chave, valor>.
-	 * Não pode haver repetição de elementos com a mesma chave.
-	 */
-	
+{	
 	public static void main(String[] args) 
 	{
-		
 		/**
 		 * HashMap
 		 * Tem boa eficiencia, com complexidade O(1).
@@ -45,6 +44,7 @@ public class MainEx05Map
             System.out.print( hashMap.get(key) + " ");  
         }
 		System.out.println("\n\n");
+		
 		
 		
 		/**

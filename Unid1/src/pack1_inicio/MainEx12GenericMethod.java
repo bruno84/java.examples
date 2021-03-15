@@ -8,14 +8,14 @@ public class MainEx12GenericMethod
 		printObject(100);
 		printObject(100.1);
 		printObject('X');
-		printObject(new MyClass(99, 99.9, "noventa e nove"));
+		printObject(new MyClass(99, "noventa e nove"));
 		System.out.println();
 		
 		// printArray
 		Integer[] intArray = {1, 2, 3, 4, 5};
 		Double[] doubleArray = {1.1, 2.2, 3.3, 4.4};
 		Character[] charArray = {'O', 'L', 'A'};
-		MyClass[] myClassArray = { new MyClass(1, 1.1, "um"),  new MyClass(2, 2.2, "dois") };
+		MyClass[] myClassArray = { new MyClass(1, "um"),  new MyClass(2, "dois") };
 
 		System.out.println("intArray:");
 		printArray(intArray);
@@ -44,29 +44,5 @@ public class MainEx12GenericMethod
 		System.out.println("\n");
 	}
 	
-	
-	private static class MyClass
-	{
-		int inteiro;
-		double valor;
-		String nome;
-		
-		public MyClass(int inteiro, double valor, String nome) {
-			this.inteiro = inteiro;
-			this.valor = valor;
-			this.nome = nome;
-		}
-
-		@Override
-		public String toString() {
-			return "MyClass ["
-					+ "inteiro=" + inteiro + ", "
-					+ "valor=" + valor + ", " 
-					+ (nome != null ? "nome=" + nome : "")
-					+ "]";
-		}
-		
-		
-	}
 
 }

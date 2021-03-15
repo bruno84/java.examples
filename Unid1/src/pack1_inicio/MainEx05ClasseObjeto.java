@@ -2,7 +2,6 @@ package pack1_inicio;
 
 public class MainEx05ClasseObjeto 
 {
-
 	public static void main(String[] args) 
 	{
 		MyClass obj1 = new MyClass(1, "Ana");
@@ -21,7 +20,7 @@ public class MainEx05ClasseObjeto
 		System.out.println( obj1.getNome() );
 		System.out.println();
 		
-		// Passagem de parametro: sempre por valor
+		// Passagem de parametro: sempre por valor.
 		// STACK: é a cópia do valor que está na stack. OK.
 		// HEAP: com a cópia do valor da referência do objeto (que fica na stack), acessamos o objeto na heap.
 		
@@ -29,8 +28,8 @@ public class MainEx05ClasseObjeto
 		System.out.println("antes  =   " + num );
 		System.out.println("antes  =   " + obj1 );
 		change(num, obj1);
-		System.out.println("depois =   " + num );
-		System.out.println("depois =   " + obj1 );
+		System.out.println("depois =   " + num ); 	// 10
+		System.out.println("depois =   " + obj1 );	// Alice, 1000
 	}
 
 
