@@ -1,5 +1,7 @@
 package pack1_pilhas_filas;
 
+import pack0_utils.MyException;
+
 public class MyStackArray <T> implements MyInterfaceStack <T>
 {
 	int size;

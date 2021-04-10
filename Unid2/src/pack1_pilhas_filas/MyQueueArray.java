@@ -1,16 +1,18 @@
 package pack1_pilhas_filas;
 
+import pack0_utils.MyException;
+
 public class MyQueueArray <T> implements MyInterfaceQueue <T>
 {
 	int size;
 	private Object[] array;
-	int begin;
-	int end;
+	int first;
+	int last;
 	
 	
 	public MyQueueArray(int size) {
-		this.begin = -1;
-		this.end = -1;
+		this.first = -1;
+		this.last = -1;
 		this.size = size;
 		this.array = new Object[size];
 	}
@@ -20,18 +22,18 @@ public class MyQueueArray <T> implements MyInterfaceQueue <T>
 	{
 		System.out.println("\nInserir...\n");
 
-	    int fimTemp = (end + 1) % size;
+	    int fimTemp = (last + 1) % size;
 
-	    if (fimTemp == begin) {
+	    if (fimTemp == first) {
 	       throw new MyException( "\nERRO: fila cheia["+valor+"]!!!\n" );
 	    }
 	    else
 	    {
 	        array[fimTemp] = valor;
-			end = fimTemp;
+			last = fimTemp;
 
-	        if (begin == -1) {
-	            begin = 0;
+	        if (first == -1) {
+	            first = 0;
 	        }
 	    }
 	}
@@ -44,21 +46,21 @@ public class MyQueueArray <T> implements MyInterfaceQueue <T>
 
 		T retorno;
 		
-	    if (begin == -1) {
+	    if (first == -1) {
 	    	throw new MyException( "\nERRO: fila vazia!!!\n" );
 	    }
 	    else
 	    {
-	        retorno = (T) array[begin];
+	        retorno = (T) array[first];
 
-	        if (begin == end)
+	        if (first == last)
 	        {
-	            begin = -1;
-	            end = -1;
+	            first = -1;
+	            last = -1;
 	        }
 	        else
 	        {
-	          begin = (begin + 1) % size;
+	          first = (first + 1) % size;
 	        }
 	    }
 
@@ -73,11 +75,11 @@ public class MyQueueArray <T> implements MyInterfaceQueue <T>
 
 		T retorno;
 		
-	    if(begin == -1) {
+	    if(first == -1) {
 	        throw new MyException( "\nERRO: fila vazia!!!\n" );
 	    }
 	    else {
-	        retorno = (T) array[ begin ];
+	        retorno = (T) array[ first ];
 	    }
 
 	    return retorno;
@@ -86,9 +88,9 @@ public class MyQueueArray <T> implements MyInterfaceQueue <T>
 	
 	public boolean isFull()
 	{
-	    int fimTemp = (end + 1) % size;
+	    int fimTemp = (last + 1) % size;
 
-	    if (fimTemp == begin) {
+	    if (fimTemp == first) {
 	        return true;
 	    }
 	    else { 
@@ -99,7 +101,7 @@ public class MyQueueArray <T> implements MyInterfaceQueue <T>
 	
 	public boolean isEmpty()
 	{
-	    if( begin == -1) {
+	    if( first == -1) {
 	        return true;
 	    }
 	    else { 
@@ -112,13 +114,13 @@ public class MyQueueArray <T> implements MyInterfaceQueue <T>
 	{
 		System.out.println("\nExibindo...\n");
 		
-	    int i = begin;
+	    int i = first;
 	    
-	    if(begin == -1) {
+	    if(first == -1) {
 	    	return;
 	    }
 	    	    
-	    while(i != end)
+	    while(i != last)
 	    {
 	    	System.out.println("posicao " + i + " = " + array[i] + "\n");
 	        i++;
@@ -129,7 +131,7 @@ public class MyQueueArray <T> implements MyInterfaceQueue <T>
 	    }
 	    System.out.println("posicao " + i + " = " + array[i] + "\n");
 
-		System.out.println("inicio = " + begin + "  fim = " + end + "\n");
+		System.out.println("inicio = " + first + "  fim = " + last + "\n");
 	}
 	
 }

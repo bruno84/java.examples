@@ -1,4 +1,4 @@
-package pack1_pilhas_filas;
+package pack0_utils;
 
 public class MyException extends RuntimeException 
 {
