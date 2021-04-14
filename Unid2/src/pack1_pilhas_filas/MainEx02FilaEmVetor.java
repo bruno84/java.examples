@@ -6,7 +6,7 @@ public class MainEx02FilaEmVetor
 	{
 		int retorno;
 		
-		MyQueueArray<Integer> fila1 = new MyQueueArray<Integer>(3);
+		MyInterfaceQueue<Integer> fila1 = new MyQueueArray<Integer>(3);
 
 		fila1.add(3);
 		fila1.add(5);

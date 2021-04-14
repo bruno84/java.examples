@@ -1,14 +1,16 @@
 package pack1_pilhas_filas;
 
+import pack0_utils.MyException;
+
 public interface MyInterfaceQueue <T>
 {
-    void add(T number);
-    T remove();
+    void add(T number) throws MyException;
+    T remove() throws MyException;
     
-    T peek();
+    T peek() throws MyException;	// consulta o início (primeiro elemento)
     
     boolean isEmpty();
     boolean isFull();
     
-    void show();
+    void show(); // opcional e auxiliar
 }

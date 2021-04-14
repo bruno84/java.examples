@@ -7,7 +7,7 @@ public class MainEx01PilhaEmVetor
 	{
 		int retorno;
 		
-		MyStackArray<Integer> pilha1 = new MyStackArray<Integer>(3);
+		MyInterfaceStack<Integer> pilha1 = new MyStackArray<Integer>(3);
 
 		pilha1.push(3);
 		pilha1.push(5);
@@ -33,9 +33,9 @@ public class MainEx01PilhaEmVetor
 		
 		pilha1.show();
 		
-		pilha1.isFull();
+		System.out.println("full? " + pilha1.isFull() );
 		
-		pilha1.isEmpty();
+		System.out.println("empty? " + pilha1.isEmpty() );
 	}
 	
 }

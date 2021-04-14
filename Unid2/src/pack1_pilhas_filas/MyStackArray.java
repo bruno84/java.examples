@@ -21,13 +21,11 @@ public class MyStackArray <T> implements MyInterfaceStack <T>
 		System.out.println("\nEmpilhar...\n");
 
 	    if( top == size-1) {
-	        throw new MyException( "\nERRO: pilha cheia [valor="+valor+"]!!!\n" );
+	        throw new MyException("\nERRO: pilha cheia [valor="+valor+"]!!!\n" );
 	    }
-	    else
-	    {
-	        top = top + 1;
-	        array[ top ] = valor;
-	    }
+
+	    top = top + 1;
+	    array[ top ] = valor;
 	}
 
 	
@@ -41,11 +39,9 @@ public class MyStackArray <T> implements MyInterfaceStack <T>
 	    if(top == -1) {
 	        throw new MyException( "\nERRO: pilha vazia!!!\n" );
 	    }
-	    else
-	    {
-	        retorno = (T) array[ top ];
-	        top = top - 1;
-	    }
+
+        retorno = (T) array[ top ];
+        top = top - 1;
 
 	    return retorno;
 	}
@@ -54,16 +50,15 @@ public class MyStackArray <T> implements MyInterfaceStack <T>
 	@SuppressWarnings("unchecked")
 	public T peek() throws MyException
 	{
-		System.out.println("\nTopo...\n");
+		System.out.println("\nConsultar o Topo...\n");
 
 		T retorno;
 		
 	    if(top == -1) {
 	        throw new MyException( "\nERRO: pilha vazia!!!\n" );
 	    }
-	    else {
-	        retorno = (T) array[ top ];
-	    }
+	    
+	    retorno = (T) array[ top ];
 
 	    return retorno;
 	}
