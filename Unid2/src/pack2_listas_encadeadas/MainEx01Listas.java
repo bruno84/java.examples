@@ -2,7 +2,7 @@ package pack2_listas_encadeadas;
 
 import java.util.Scanner;
 
-public class MainEx01ListaSimples 
+public class MainEx01Listas 
 {
 	private static Scanner scanner = new Scanner( System.in ); 
 	
@@ -13,8 +13,9 @@ public class MainEx01ListaSimples
 		int idCrit;
 		int opcao = -1;
 		
-		MyLinkedListSingly<String> lista1 = new MyLinkedListSingly<String>();
-	    
+		//MyInterfaceList<String> lista1 = new MyLinkedListSingly<String>();
+		MyInterfaceList<String> lista1 = new MyLinkedListDouble<String>();
+		
 	    do 
 	    {
 	    	System.out.println("\n");

@@ -4,7 +4,7 @@ package pack2_listas_encadeadas;
  * Objetivo: Lista simplesmente encadeada
  * @author Bruno Monteiro
  */
-public class MyLinkedListSingly <T> implements MyInterfaceList <T>
+public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 {
 	// Classe Interna Node
 	class Node
@@ -12,7 +12,8 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 		// Atributos de Node
 		int id;
         T data;    
-        Node next;    
+        Node next; 
+        Node prev;	// novidade
                 
         // Construtor de Node
         public Node(T data) 
@@ -21,7 +22,8 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
         	nextId = nextId+1;
         	
             this.data = data;    
-            this.next = null;    
+            this.next = null; 
+            this.prev = null; 
         }    
     } 
 	
@@ -32,18 +34,17 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 	public int size;
     
     // Construtor de MyLinkedListSingly
-	public MyLinkedListSingly() {
+	public MyLinkedListDouble() {
 		head = null;
 		tail = null;
 		nextId = 1;
 		size = 0;
 	}
 
-	
 	public void show()
 	{
 	    Node p = head;
-
+	    
 		if(p == null) {
 			System.out.println("LISTA VAZIA \n");
 		}
@@ -55,12 +56,37 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 	            System.out.println("ID: " + p.id );
 	            System.out.println("Dado: " + p.data );
 	            System.out.println("\n");
-	            p = p.next;
+	            
+	    	    p = p.next;
 	        }
 	    }
 		
 		System.out.println("size = " + size + "\n");
 	}
+	
+	public void showReverse()
+	{
+	    Node p = tail;
+	    
+		if(p == null) {
+			System.out.println("LISTA VAZIA \n");
+		}
+		else 
+	    {
+	        while( p != null )
+	        {
+	            System.out.println("\n");
+	            System.out.println("ID: " + p.id );
+	            System.out.println("Dado: " + p.data );
+	            System.out.println("\n");
+	            
+	    	    p = p.prev;
+	        }
+	    }
+		
+		System.out.println("size = " + size + "\n");
+	}
+	
 	
 
 	public void addFirst(T dado)
@@ -75,6 +101,7 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 		else {
 			// Anexa
 			novo.next = head;
+			head.prev = novo;
 			head = novo;
 		}
 		
@@ -94,6 +121,7 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 	    else
 	    {
 			// Anexa
+	    	novo.prev = tail; // lembre-se de começar a anexação pelo novo elemento
 	    	tail.next = novo;
 	        tail = novo;
 	    }
@@ -123,7 +151,13 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 	        
 	    	// Anexa (dicas: comece atribuindo os campos null)
 	        novo.next = p.next;
-		    p.next = novo;
+	        novo.prev = p;
+	        p.next = novo;
+	        
+	        Node frente = novo.next;	// var auxiliar
+	        if(frente != null) {		// previne nullpoint quando add no tail
+	        	frente.prev = novo;
+	        }
 		    
 		    size++;
 	    }
@@ -204,6 +238,7 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 			else {
 				System.out.println("Remove primeiro elemento, mas há mais outros\n");
                 head = head.next;
+                head.prev = null; // novidade
 			}
 			
 			p.next = null; // isola elemento removido
@@ -236,13 +271,9 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
             else 
             {
             	System.out.println("Remove ultimo elemento, mas há mais outros\n");
-        		Node p = head;
-        		// Procuro o penultimo elemento
-                while (p.next != tail) {
-                	p = p.next;
-                }
-                
-                tail = p;
+        		Node anterior = tail.prev;  // novidade
+        		tail.prev = null;			// novidade
+                tail = anterior;			
                 tail.next = null;
             }
             
@@ -254,30 +285,9 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
         return dadoRetorno;
 	}
 	
-
-	private Node searchBefore(int id)
-	{
-	    Node p = head; 	   			// ponteiro temporario
-		Node anterior = null;	   	// ponteiro anterior
-
-	    while (p != null)
-	    {
-	    	anterior = p;
-	        p = p.next;
-	        
-	        if (p != null && p.id == id) {
-	           return anterior;
-	        }
-	    }
-	    
-	    return null;
-	}
-	
 	
 	public T remove(int id)
-	{	
-		Node anterior = null;
-		Node removido = null;
+	{
 		T dadoRetorno = null;
 
 		if( head == null ) {
@@ -285,8 +295,11 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 	        return null;
 	    }
 
-		anterior = searchBefore(id); // null: ID não existe OU ID está no 1o elemento
-
+		Node removido = searchNode(id); // null: ID não existe OU ID está no 1o elemento
+		Node anterior = removido.prev;
+		// OBS: vc pode usar a referencia de removido para alterar os IFs abaixo,
+		// porém, mantive a mesma estrutura usada na lista simples para facilitar.
+		
 		if( anterior == null ) 
 		{
 			if(head.id != id)
@@ -309,7 +322,8 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 				{
 					System.out.println("Remove o primeiro elemento, mas não é o único \n");
 	    			head = head.next;
-	            	removido.next = null; // isola elemento removido
+	    			head.prev = null; 		// novidade
+	            	removido.next = null; 	// isola elemento removido
 				}
 			}
 		}
@@ -321,14 +335,22 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 
 			if(removido == tail) {
 				System.out.println("Remove ultimo \n");
+				tail.prev = null;		// novidade
 				tail = anterior;		// atualiza tail
-				tail.next = null;	// se desliga do elemento removido
+				tail.next = null;		// se desliga do elemento removido
 				// OBS: nao precisa isolar elemento removido pois o next do tail é sempre null.
 			}
 			else {
 				System.out.println("Remove meio \n");
-				anterior.next = removido.next;	// se desliga do elemento removido
-		        removido.next = null;			// isola elemento removido
+				Node frente = removido.next;	// var auxiliar
+				
+				// se desliga do elemento removido
+				anterior.next = frente;		
+		        frente.prev = null;
+				
+				// isola elemento removido
+				removido.next = null;
+				removido.prev = null;
 			}
 		}
 
