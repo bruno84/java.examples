@@ -31,6 +31,7 @@ public class MainEx01Listas
 	        System.out.println("8-Remover do Inicio");
 	        System.out.println("9-Remover do Fim");
 	        System.out.println("10-Remover por ID");
+	        System.out.println("11-Percorrer reverso");
 	        System.out.println("0-Sair \n");
 	        
 	        System.out.println("Qual sua opcao? ");
@@ -102,6 +103,10 @@ public class MainEx01Listas
 	                    result = lista1.remove(idCrit);
 	                    System.out.println("result = " + result + "\n");
 	                    break;
+	                    
+	            case 11: System.out.println("PERCORRER REVERSO (Lista Dupla)\n");
+        				lista1.showReverse();
+        				break;
 
 	            case 0: System.out.println("Saindo... \n");
 	                    break;

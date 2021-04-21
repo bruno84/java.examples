@@ -62,6 +62,11 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 		System.out.println("size = " + size + "\n");
 	}
 	
+	public void showReverse()
+	{
+		System.out.println("Ops! Esta é uma lista simplesmente encadeada. \n");
+		System.out.println("size = " + size + "\n");
+	}
 
 	public void addFirst(T dado)
 	{
