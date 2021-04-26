@@ -4,23 +4,19 @@ package pack2_listas_encadeadas;
  * Objetivo: Lista simplesmente encadeada
  * @author Bruno Monteiro
  */
-public class MyLinkedListDouble <T> implements MyInterfaceList <T>
+public class MyLinkedListDouble2 <T> implements MyInterfaceList2 <T>
 {
 	// Classe Interna Node
 	class Node
 	{
 		// Atributos de Node
-		int id;
         T data;    
         Node next; 
         Node prev;	// novidade
                 
         // Construtor de Node
         public Node(T data) 
-        {
-        	this.id = nextId;
-        	nextId = nextId+1;
-        	
+        {        	
             this.data = data;    
             this.next = null; 
             this.prev = null; 
@@ -34,10 +30,9 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	public int size;
     
     // Construtor de MyLinkedListSingly
-	public MyLinkedListDouble() {
+	public MyLinkedListDouble2() {
 		head = null;
 		tail = null;
-		nextId = 1;
 		size = 0;
 	}
 
@@ -53,7 +48,6 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	        while( p != null )
 	        {
 	            System.out.println("\n");
-	            System.out.println("ID: " + p.id );
 	            System.out.println("Dado: " + p.data );
 	            System.out.println("\n");
 	            
@@ -76,7 +70,6 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	        while( p != null )
 	        {
 	            System.out.println("\n");
-	            System.out.println("ID: " + p.id );
 	            System.out.println("Dado: " + p.data );
 	            System.out.println("\n");
 	            
@@ -130,10 +123,10 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	}
 
 	
-	public void addAfter(T dado, int idCrit)
+	public void addAfter(T dado, T criterio)
 	{
 		// Antecessor
-	    Node p = searchNode(idCrit);
+	    Node p = searchNode(criterio);
 
 	    if( p == null )	// Verifica se o criterio existe
 	    {
@@ -189,13 +182,14 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	}
 	
 
-	private Node searchNode(int id)
+	private Node searchNode(T criterio)
 	{
 	    Node p = head;		// ponteiro temporario
 
 	    while( p != null )
 	    {
-	        if( p.id == id ) {
+	        if( p.data.equals(criterio) ) {
+	        	System.out.println();
 	            return p;
 	        }
 	        p = p.next;
@@ -205,9 +199,9 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	}
 
 	
-	public T search(int id)
+	public T search(T criterio)
 	{
-		Node p = searchNode(id);
+		Node p = searchNode(criterio);
 		
 		if(p == null) {
 			return null;
@@ -287,7 +281,7 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	}
 	
 	
-	public T remove(int id)
+	public T remove(T criterio)
 	{
 		T dadoRetorno = null;
 
@@ -297,10 +291,10 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	    }
 
 		Node anterior = null;
-		Node removido = searchNode(id); // null: ID não existe OU ID está no 1o elemento
+		Node removido = searchNode(criterio); // null: ID não existe OU ID está no 1o elemento
 		
 		if(removido != null) {
-			anterior = removido.prev; // evita nullpointer
+			anterior = removido.prev;  // evita nullpointer
 		}
 		
 		// OBS: vc pode usar a referencia de removido para alterar os IFs abaixo,
@@ -308,7 +302,7 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 		
 		if( anterior == null ) 
 		{
-			if(head.id != id)
+			if( head.data.equals(criterio) == false )
 			{
 		        System.out.println("ID nao existe!!! \n");
 		        return null;
