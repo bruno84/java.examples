@@ -62,6 +62,11 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 		System.out.println("size = " + size + "\n");
 	}
 	
+	public void showReverse()
+	{
+		System.out.println("Ops! Esta é uma lista simplesmente encadeada. \n");
+		System.out.println("size = " + size + "\n");
+	}
 
 	public void addFirst(T dado)
 	{
@@ -322,7 +327,7 @@ public class MyLinkedListSingly <T> implements MyInterfaceList <T>
 			if(removido == tail) {
 				System.out.println("Remove ultimo \n");
 				tail = anterior;		// atualiza tail
-				anterior.next = null;	// se desliga do elemento removido
+				tail.next = null;	// se desliga do elemento removido
 				// OBS: nao precisa isolar elemento removido pois o next do tail é sempre null.
 			}
 			else {

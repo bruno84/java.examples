@@ -3,6 +3,7 @@ package pack2_listas_encadeadas;
 public interface MyInterfaceList <T>
 {
 	void show();
+	void showReverse();
 	
     void addFirst(T value);
     void addLast(T value);
