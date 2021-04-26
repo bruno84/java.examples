@@ -2,7 +2,7 @@ package pack2_listas_encadeadas;
 
 import java.util.Scanner;
 
-public class MainEx01ListaSimples 
+public class MainEx01Listas 
 {
 	private static Scanner scanner = new Scanner( System.in ); 
 	
@@ -13,8 +13,9 @@ public class MainEx01ListaSimples
 		int idCrit;
 		int opcao = -1;
 		
-		MyLinkedListSingly<String> lista1 = new MyLinkedListSingly<String>();
-	    
+		//MyInterfaceList<String> lista1 = new MyLinkedListSingly<String>();
+		MyInterfaceList<String> lista1 = new MyLinkedListDouble<String>();
+		
 	    do 
 	    {
 	    	System.out.println("\n");
@@ -30,6 +31,7 @@ public class MainEx01ListaSimples
 	        System.out.println("8-Remover do Inicio");
 	        System.out.println("9-Remover do Fim");
 	        System.out.println("10-Remover por ID");
+	        System.out.println("11-Percorrer reverso");
 	        System.out.println("0-Sair \n");
 	        
 	        System.out.println("Qual sua opcao? ");
@@ -101,6 +103,10 @@ public class MainEx01ListaSimples
 	                    result = lista1.remove(idCrit);
 	                    System.out.println("result = " + result + "\n");
 	                    break;
+	                    
+	            case 11: System.out.println("PERCORRER REVERSO (Lista Dupla)\n");
+        				lista1.showReverse();
+        				break;
 
 	            case 0: System.out.println("Saindo... \n");
 	                    break;
