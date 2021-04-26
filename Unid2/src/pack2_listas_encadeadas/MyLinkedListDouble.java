@@ -66,7 +66,7 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	
 	public void showReverse()
 	{
-	    Node p = tail;
+	    Node p = tail; // novidade
 	    
 		if(p == null) {
 			System.out.println("LISTA VAZIA \n");
@@ -80,7 +80,7 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	            System.out.println("Dado: " + p.data );
 	            System.out.println("\n");
 	            
-	    	    p = p.prev;
+	    	    p = p.prev; // novidade
 	        }
 	    }
 		
@@ -101,7 +101,7 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 		else {
 			// Anexa
 			novo.next = head;
-			head.prev = novo;
+			head.prev = novo; // novidade
 			head = novo;
 		}
 		
@@ -121,7 +121,7 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	    else
 	    {
 			// Anexa
-	    	novo.prev = tail; // lembre-se de começar a anexação pelo novo elemento
+	    	novo.prev = tail; // novidade. Lembre-se de começar a anexação pelo novo elemento
 	    	tail.next = novo;
 	        tail = novo;
 	    }
@@ -151,9 +151,10 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	        
 	    	// Anexa (dicas: comece atribuindo os campos null)
 	        novo.next = p.next;
-	        novo.prev = p;
+	        novo.prev = p;		// novidade
 	        p.next = novo;
 	        
+	        // novidade
 	        Node frente = novo.next;	// var auxiliar
 	        if(frente != null) {		// previne nullpoint quando add no tail
 	        	frente.prev = novo;
@@ -250,7 +251,7 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 	}
 	
 	
-	public T removeLast()
+	public T removeLast() 
 	{
 		T dadoRetorno = null;
 
@@ -346,11 +347,11 @@ public class MyLinkedListDouble <T> implements MyInterfaceList <T>
 				
 				// se desliga do elemento removido
 				anterior.next = frente;		
-		        frente.prev = null;
+		        frente.prev = anterior; // novidade
 				
 				// isola elemento removido
 				removido.next = null;
-				removido.prev = null;
+				removido.prev = null;  // novidade
 			}
 		}
 
