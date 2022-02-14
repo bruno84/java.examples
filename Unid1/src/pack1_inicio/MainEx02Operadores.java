@@ -5,6 +5,9 @@ public class MainEx02Operadores
 
 	public static void main(String[] args) 
 	{
+		//--------------------------------------------------------
+		// Operadores aritm�ticos
+		//--------------------------------------------------------
 	    int int1 = 11;
 		int int2 = 4;
 		int resultInt;
@@ -25,7 +28,6 @@ public class MainEx02Operadores
 		System.out.println("Resto: " + resultInt + "\n");
 	    
 		
-	    
 		float float1 = 11;
 		float float2 = 4;
 		float resultFloat;
@@ -42,11 +44,13 @@ public class MainEx02Operadores
 		resultFloat = float1 / float2;
 		System.out.println("Divisao: " + resultFloat);
 		
-		resultFloat = float1 % float2;		// Diferente de C, é feito cast interno.
-	    System.out.println("Resto: " + resultFloat + "\t\t Atenção! \n");
+		// OBS: Diferente de C, eh feito cast interno.
+		resultFloat = float1 % float2;		
+	    System.out.println("Resto: " + resultFloat + "\t\t Atencao! \n");
 	    
-	    
-	    
+		//--------------------------------------------------------
+		// Operadores l�gicos
+		//--------------------------------------------------------
 		boolean A = true; 
 		boolean B = false; 
 		boolean resultBool;
@@ -59,7 +63,9 @@ public class MainEx02Operadores
 	    System.out.println("resultBool: " + resultBool + "\n");
 	    
 	    
-	    
+		//--------------------------------------------------------
+		// Operadores relacionais
+		//--------------------------------------------------------
 	    boolean pai = true; // TRUE
 	    boolean mae = false; // FALSE
 
@@ -67,7 +73,7 @@ public class MainEx02Operadores
 	    	System.out.println("Diferentes"); 
 	    } 
 
-	    if(pai == mae) {					// CUIDADO! NÃO USAR APENAS = 
+	    if(pai == mae) {					// CUIDADO! N�O USAR APENAS = 
 	    	System.out.println("Iguais"); 
 	    } 
 	        
@@ -84,52 +90,67 @@ public class MainEx02Operadores
 	    } 
 	    
 
-	    
+		//--------------------------------------------------------
+		// Operadores de bitwise
+		//--------------------------------------------------------
 		int a = 5; 								// 0101 
-		int b = 7; 								// 0111 
-		int r;
+		int b = 7; 								// 0111 				
+									
+		System.out.println("a     = " + exibirBits(4, a) ); 
+		System.out.println("b     = " + exibirBits(4, b) ); 
+		System.out.println("a | b = " + exibirBits(4, a | b) + "\n"); 	// 0111
 		
-		r = a | b; 								// 0111
-		System.out.println("a | b = " + r); 
-	    
-		r = a & b; 								// 0101
-		System.out.println("a & b = " + r); 
+		System.out.println("a     = " + exibirBits(4, a) ); 
+		System.out.println("b     = " + exibirBits(4, b) ); 
+		System.out.println("a & b = " + exibirBits(4, a & b) + "\n"); 	// 0101
 		
-		r = a ^ b; 								// 0010		XOR 
-		System.out.println("a ^ b = " + r); 
+		System.out.println("a     = " + exibirBits(4, a) ); 
+		System.out.println("b     = " + exibirBits(4, b) ); 
+		System.out.println("a ^ b = " + exibirBits(4, a ^ b) + "\n"); 	// 0010		XOR
 		
-		r = ~a; 								// 1010
-		System.out.println("~a = " + r + "\n"); 
-		
-		
-		int c = 64; 							// 01000000 
-		
-		r = c >> 1;								// 00100000		Signed Right Shift 
-		System.out.println("c >> 1 = " + r); 
-		
-		r = c << 1;								// 10000000		Signed Left Shift
-		System.out.println("c << 1 = " + r); 
-		
-		r = c >>> 1;							// 00100000		Unsigned Right Shift
-		System.out.println("c >>> 1 = " + r + "\n"); 
+		System.out.println(" a = " + exibirBits(32,  a) ); 
+		System.out.println("~a = " + exibirBits(32, ~a) + "\n"); 		// // 1010
 		
 		
-		c = -64; 								// 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11000000 
+		int c = 64; 							
 		
-		r = c >> 1;								// 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11100000		Signed Right Shift 
-		System.out.println("c >> 1 = " + r); 
+		System.out.println("c       = " + exibirBits(8, c) ); 		// 01000000 
+		System.out.println("c << 1  = " + exibirBits(8, c << 1) ); 	// 10000000		Signed Left Shift
+		System.out.println();
 		
-		r = c << 1;								// 11111111 11111111 11111111 11111111 11111111 11111111 11111111 10000000		Signed Left Shift
-		System.out.println("c << 1 = " + r); 
+		System.out.println("c       = " + exibirBits(8, c) ); 		// 01000000 
+		System.out.println("c >> 1  = " + exibirBits(8, c >> 1) ); 	// 00100000		Signed Right Shift 
+		System.out.println();	
 		
-		r = c >>> 1;							// 00000000 00000000 00000000 00000000 01111111 11111111 11111111 11100000 		Unsigned Right Shift 		
-		System.out.println("c >>> 1 = " + r + "\n"); 
+		System.out.println("c       = " + exibirBits(8, c) ); 			// 01000000 
+		System.out.println("c >>> 1 = " + exibirBits(8, c >>> 1) ); 	// 00100000		Unsigned Right Shift
+		System.out.println("\n");
 		
-		// ATENÇÃO: NAO EXISTE <<<				Unsigned Left Shift = Signed Left Shift
+		c = -64; 
 		
+		System.out.println("c       = " + exibirBits(32, c) ); 		// 11111111 11111111 11111111 11000000
+		System.out.println("c << 1  = " + exibirBits(32, c << 1) ); 	// 11111111 11111111 11111111 10000000	Signed Left Shift
+		System.out.println();
+		
+		System.out.println("c       = " + exibirBits(32, c) ); 		// 11111111 11111111 11111111 11000000 
+		System.out.println("c >> 1  = " + exibirBits(32, c >> 1) ); 	// 11111111 11111111 11111111 11100000	Signed Right Shift 
+		System.out.println();
+		
+		System.out.println("c       = " + exibirBits(32, c) ); 		 // 11111111 11111111 11111111 11000000 
+		System.out.println("c >>> 1 = " + exibirBits(32, c >>> 1) ); // 01111111 11111111 11111111 11100000  Unsigned Right Shift 
+		System.out.println();
+		
+		// ATENCAO: NAO EXISTE <<<	Unsigned Left Shift = Signed Left Shift
+				
 	}
 
-	
+	static String exibirBits(int bytes, int palavra)
+	{
+		String str = "";
+		str = String.format("%"+bytes+"s", Integer.toBinaryString(palavra) );		
+		str = str.replace(' ', '0');
+		return str;
+	}
 
 	
 	
