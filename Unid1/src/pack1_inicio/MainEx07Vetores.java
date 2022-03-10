@@ -11,8 +11,7 @@ public class MainEx07Vetores
 		int size = 5;
 		int vetor[] = new int[size]; 				// declaracao
 		
-		// int vetor[] = {10, 20, 30, 40, 50};		// inicializacao
-		
+		//int vetor[] = {10, 20, 30, 40, 50};		// inicializacao
 		
 		System.out.println("\n Atribuicao direta...");
 		vetor[0] = 10;    // Atribuicao direta 

@@ -11,43 +11,39 @@ public class MainEx03EstruturasCondicionais
 	    System.out.print("Qual a media? "); 
 	    float media = in.nextFloat(); 
 	 
-
 	    // IF SIMPLES
 	    if(media >= 7) {
 	    	System.out.println("Aprovado");
-		}
-	    else {
-	    	System.out.println("Recuperacao ou Reprovado?"); 
 	    }
+	    else {
+	    	System.out.println("Recuperacao ou Reprovado?");
+	    }
+
 	    System.out.println("");
 	    
 	    
-	    // IF SIMPLES. OBS: else é opcional
-	    if(media >= 7) 
-		{
+	    // IF SIMPLES. OBS: else eh opcional
+	    if(media >= 7) {
 	    	System.out.println("Aprovado");
 		}
 	    System.out.println("");
 	    
 	    
 	    // IF COMPOSTO
-	    if(media >= 7) 
-	    { 
+	    if(media >= 7) { 
 	    	System.out.println("Aprovado"); 
 	    } 
 	    else 
 	    {
 	    	System.out.println("Recuperacao ou Reprovado?");
 	    	
-	        if(media >= 3.5) 
-		    {
+	        if(media >= 3.5) {
 	        	System.out.println("Recuperacao"); 
 		    } 
-		    else 
-		    { 
+		    else { 
 		    	System.out.println("Reprovado");  
-		    }  
-	    } 
+		    }
+	    }
 	    System.out.println("");
 	    
 	    
@@ -64,7 +60,7 @@ public class MainEx03EstruturasCondicionais
 	    System.out.println("");
 	    
 	    
-	    // OPERADOR CONDICIONAL TERNÁRIO
+	    // OPERADOR CONDICIONAL TERNARIO
 	    String str = (media >= 7) ? "Aprovado" : "Recuperacao ou Reprovado";
 	    System.out.println("str = " + str + "\n");
 	    

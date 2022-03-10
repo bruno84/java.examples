@@ -8,7 +8,6 @@ public class MainEx04EstruturasRepeticao
 	
 	public static void main(String[] args) 
 	{
-		
 		System.out.print("Qual o valor inicial: "); 
 		int vi = in.nextInt(); 
 	    System.out.print("Qual o valor final: "); 

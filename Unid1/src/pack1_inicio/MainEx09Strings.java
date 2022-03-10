@@ -6,11 +6,11 @@ public class MainEx09Strings
 	public static void main(String[] args) 
 	{
 		/*
-		 * Observação1: Strings em Java são suportados internamente por array de char. 
-		 * Da mesma forma que arrays sao imutaveis, Strings também são. 
-		 * Portanto, sempre que uma String é alterada, uma nova String é criada.
+		 * Observacao1: Strings em Java sao suportados internamente por array de char. 
+		 * Da mesma forma que arrays sao imutaveis, Strings tambem sao. 
+		 * Portanto, sempre que uma String eh alterada, uma nova String eh criada.
 		 * 
-		 * Observação2: Os métodos que produzem alteração na string devem ter usar atribuição.
+		 * Observacao2: Os metodos que produzem alteracao na string devem usar atribuicao.
 		 */
 		String str1 = "Bruna";
 		System.out.println(str1.getBytes());
@@ -21,15 +21,15 @@ public class MainEx09Strings
 		
 		System.out.println(str1.charAt(0));
 		
-		System.out.println(str1.indexOf("r", 0) ); // primeira ocorrencia, a partir de i (-->)
+		System.out.println(str1.indexOf("ru", 0) ); // primeira ocorrencia, a partir de i (-->)
 		
 		System.out.println(str1.lastIndexOf("o", str1.length() ) ); // ultima ocorrencia, a partir de j (<--)
 		
 		System.out.println(str1.substring(1, 4)); // i , j-1 index
 		
-		System.out.println( str1.compareTo("Ana") );
-		System.out.println( str1.compareTo("Bruno") );
-		System.out.println( str1.compareTo("Carlos") );
+		System.out.println( str1.compareTo("Ana") ); 	// 1
+		System.out.println( str1.compareTo("Bruno") );	// 0
+		System.out.println( str1.compareTo("Carlos") ); //-1
 		
 		System.out.println( str1.equals("Ana") );
 		
@@ -38,15 +38,15 @@ public class MainEx09Strings
 		System.out.println( str1.toUpperCase() );
 		
 		str1 = "  B r u n o  ";
+		System.out.println( str1 ); 
 		str1 = str1.trim();				// nao remove no meio
 		System.out.println( str1 );  
 		
 		System.out.println( str1.replace(" ", "") );
-		System.out.println( str1 ); 
-		
+				
 		str1 = str1.concat(" Monteiro");
 		System.out.println( str1 );
-
+		
 		String[] parts = str1.split(" ");
 		for (int i = 0; i < parts.length; i++) {
 			System.out.print("["+parts[i]+"] ");
@@ -54,9 +54,9 @@ public class MainEx09Strings
 		System.out.println("\n");
 		
 		/*
-		 * StringBuffer é uma semelhante a String, porém é mutável.
-		 * É indicado para cenários com muitas alterações, devido ganho de eficiência.
-		 * Os métodos que produzem alteração na string não precisam de atribuição.
+		 * StringBuffer eh uma classe semelhante a String, porem eh mutavel.
+		 * Eh indicado para cenarios com muitas alteracoes, devido ganho de eficiencia.
+		 * Os metodos que produzem alteracao na string nao precisam de atribuicao.
 		 */
 		StringBuffer sb1 = new StringBuffer("Bruno");
 		System.out.println(sb1.hashCode());

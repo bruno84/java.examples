@@ -8,6 +8,9 @@ import java.io.Serializable;
 public class MyClass implements Serializable, Comparable<MyClass>
 {
 	private static final long serialVersionUID = -4126034513697849903L;
+
+	// Constante
+	private static final float FATOR = 0.5f;
 	
 	// Atributos
 	private int inteiro;	// atributo-chave
@@ -19,7 +22,8 @@ public class MyClass implements Serializable, Comparable<MyClass>
 		this.nome = nome;
 	}
 
-	// Metodos
+		
+	// Metodos getters e setters
 	public int getInteiro() {
 		return inteiro;
 	}
@@ -36,13 +40,11 @@ public class MyClass implements Serializable, Comparable<MyClass>
 	
 	
 	@Override
-	public String toString() 
-	{
-		return "MyClass["
-				+ "inteiro=" + inteiro + ", "
-				+ (nome != null ? "nome=" + nome : "")
-				+ "] ";
-	}
+	public String toString() {
+		return "MyClass [" + 
+				"inteiro=" + inteiro + ", " + 
+				(nome != null ? "nome=" + nome : "") + "]";
+	}	
 	
 	
 	@Override
