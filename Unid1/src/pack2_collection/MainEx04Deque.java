@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 /**
  * Deque
- * Adiciona a liberdade de manipular o início e o fim da estrutura.
+ * Adiciona a liberdade de manipular o inicio e o fim da estrutura.
  * @author bruno.monteiro
  */
 public class MainEx04Deque 
@@ -15,7 +15,7 @@ public class MainEx04Deque
 		/**
 		 * LinkedList
 		 * Internamente utiliza uma lista duplamente encadeada.
-		 * Conserva a ordem de inserção.
+		 * Conserva a ordem de insercao.
 		 */
 		System.out.println("LinkedList");
         Deque<String> linkedList = new LinkedList<String>(); 

@@ -76,5 +76,4 @@ public class MyClass implements Serializable, Comparable<MyClass>
 	}
 
 
-	
 }

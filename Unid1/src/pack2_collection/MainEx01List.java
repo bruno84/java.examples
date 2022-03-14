@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Stack;
 import java.util.Vector;
 
+import pack1_inicio.MyClass;
+
 /**
  * Exemplos da interface da Collection: List
  * Permite implementar estruturas lineares, que pode haver elementos repetidos.
@@ -18,14 +20,14 @@ public class MainEx01List
 	{
 		/**
 		 * ArrayList: implementa List
-		 * Elementos são armazenados de forma adjacente na memória. 
-		 * Ele preserva a ordem das adições.
-		 * Facilita a manipulação, porém é mais lento que array, pois novas instancias sao criadas/clonadas quando requer mais capacidade.
+		 * Elementos sao armazenados de forma adjacente na memoria. 
+		 * Ele preserva a ordem das adicoes.
+		 * Facilita a manipulacao, porem eh mais lento que array, pois novas instancias sao criadas/clonadas quando requer mais capacidade.
 		 * Capacidade: size+50%
 		 */
         System.out.println("ArrayList");
+        // OBS: definir a capacidade eh opcional, mas aumenta a eficiencia. 
         List<String> list1 = new ArrayList<String>(10);
-        // ATENCAO: definir a capacidade é opcional, mas aumenta a eficiência. 
         list1.add(0, "zero"); 		// index 0
         list1.add(1, "um"); 		// index 1
         list1.add("dois"); 			// no final
@@ -33,7 +35,7 @@ public class MainEx01List
         list1.add("quatro"); 		// no final
         System.out.println("size = " + list1.size());
         System.out.println(list1); 
- 
+        
         String str = list1.remove(1); 	
         boolean bool = list1.remove("tres"); 
         System.out.println("remove(1): " + str); 	// dois
@@ -60,8 +62,10 @@ public class MainEx01List
         list1.addAll(2, list2); 	// Adiciona list2 no index 2
         System.out.println(list1); 
         System.out.println();
-        
-        Collections.sort(list1);	// ordena a lista. Se primitivo considera a natureza do tipo. Se objeto deve-se sobrescrever o método compareTo.
+       
+        // Ordena a lista. Se primitivo considera a natureza do tipo.
+        // Se objeto deve-se sobrescrever o metodo compareTo.
+        Collections.sort(list1);	
         
         for(String string : list1) {
 			System.out.println(string);
@@ -71,36 +75,36 @@ public class MainEx01List
         
 		/**
 		 * LinckedList: implementa List 
-		 * Elementos NÃO são armazenados de forma adjacente na memória. 
-		 * Internamente é uma lista duplamente encadeada.
-		 * Melhor eficiencia em: add, remove.
+		 * Elementos Nao sao armazenados de forma adjacente na memoria. 
+		 * Internamente eh uma lista duplamente encadeada.
+		 * Melhor eficiencia em: add, remove (elementos no meio, se comparado com ArrayList)
+		 * Pior eficiencia em: acessar um elemento, pois nao eh indexado.
 		 */
         System.out.println("LinkedList");
         List<String> linkedList = new LinkedList<String>();
-        linkedList.add("zero"); 		
+        linkedList.add("zero"); 			
         linkedList.add("um");
-        linkedList.add("dois");			
+        linkedList.add("dois");		// adicionados ao final	
         System.out.println(linkedList); 
         System.out.println();
-        
-        
+                
 		/**
 		 * Vector: implementa List
 		 * Muito parecida com ArrayList.
-		 * Diferenças: thread-safe; capacidade é size+100%
+		 * Diferencas: thread-safe; capacidade eh size+100%
 		 */
         System.out.println("Vector");
         List<String> vector = new Vector<String>(); 
         vector.add("zero"); 		
         vector.add("um"); 		
-        vector.add("dois"); 					
+        vector.add("dois");
         System.out.println(vector); 
         System.out.println();
         
         
 		/**
 		 * Stack: estende Vector
-		 * Adiciona novos métodos para se comportar como uma pilha.
+		 * Adiciona novos metodos para se comportar como uma pilha.
 		 */
         System.out.println("Stack");
         Stack<String> stack = new Stack<String>(); 
@@ -113,8 +117,6 @@ public class MainEx01List
         str = stack.pop();
         System.out.println("removido: " + str);  // remove elemento do topo
         System.out.println(stack);
-        System.out.println();
-        
 	}
 
 }
