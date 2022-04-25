@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import pack2_listas_encadeadas.comum.MyClass;
 import pack2_listas_encadeadas.comum.MyInterfaceListV1;
-import pack2_listas_encadeadas.simples.MyLinkedListSinglyV1;
+import pack2_listas_encadeadas.lista_dupla.MyLinkedListDoubleV1;
 
 public class MainListasV1 
 {
@@ -14,8 +14,8 @@ public class MainListasV1
 	{		
 		int opcao = -1;
 		
-		MyInterfaceListV1<MyClass> listaSimples = new MyLinkedListSinglyV1<MyClass>();
-		//MyInterfaceListV1<MyClass> listaDupla = new MyLinkedListDoubleV1<MyClass>();
+		//MyInterfaceListV1<MyClass> lista1 = new MyLinkedListSinglyV1<MyClass>();
+		MyInterfaceListV1<MyClass> lista1 = new MyLinkedListDoubleV1<MyClass>();
 		
 		String nome;
 		int inteiro;
@@ -48,16 +48,16 @@ public class MainListasV1
 	        switch(opcao)
 	        {
 	            case 1: System.out.println("PERCORRER \n");
-	            		listaSimples.show();
+	            		lista1.show();
 	                    break;
 	        
 	                    
 		        case 2: System.out.println("CONSULTAR INICIO \n");
-		                System.out.println("result = " + listaSimples.peekFirst() + "\n");
+		                System.out.println("result = " + lista1.peekFirst() + "\n");
 		                break;
 
 		        case 3: System.out.println("CONSULTAR FIM \n");
-		                System.out.println("result = " + listaSimples.peekLast() + "\n");
+		                System.out.println("result = " + lista1.peekLast() + "\n");
 		                break;
 	                    
 		                
@@ -68,7 +68,7 @@ public class MainListasV1
 						System.out.println("Qual o nome? ");
 						nome = scanner.nextLine();
 						myClassNovo = new MyClass(inteiro, nome);
-		                listaSimples.addFirst(myClassNovo);
+		                lista1.addFirst(myClassNovo);
 		                break;
 		
 		        case 5: System.out.println("INSERIR FIM \n");
@@ -78,7 +78,7 @@ public class MainListasV1
 						System.out.println("Qual o nome? ");
 						nome = scanner.nextLine();
 						myClassNovo = new MyClass(inteiro, nome);
-		                listaSimples.addLast(myClassNovo);
+		                lista1.addLast(myClassNovo);
 		                break;
 		                
 	            case 6: System.out.println("INSERIR DEPOIS DE... \n");
@@ -91,7 +91,7 @@ public class MainListasV1
 	                    System.out.println("Inserir depois de qual criterio? ");
 	                    inteiro = scanner.nextInt();
 	                    myClassCrit = new MyClass(inteiro, "");
-	                    listaSimples.addAfter(myClassNovo, myClassCrit);
+	                    lista1.addAfter(myClassNovo, myClassCrit);
 	                    break;
 		                
 		                	                    
@@ -99,27 +99,27 @@ public class MainListasV1
 						System.out.println("Qual o criterio? ");
 	                    inteiro = scanner.nextInt();
 	                    myClassCrit = new MyClass(inteiro, "");
-	                    System.out.println("result = " + listaSimples.search(myClassCrit) + "\n");
+	                    System.out.println("result = " + lista1.search(myClassCrit) + "\n");
 	                    break;
 
 
 	            case 8: System.out.println("REMOVER DO INICIO \n");
-	                    System.out.println("result = " + listaSimples.removeFirst() + "\n");
+	                    System.out.println("result = " + lista1.removeFirst() + "\n");
 	                    break;
 
 	            case 9: System.out.println("REMOVER DO FIM \n");
-		                System.out.println("result = " + listaSimples.removeLast() + "\n");
+		                System.out.println("result = " + lista1.removeLast() + "\n");
 		                break;
 
 	            case 10: System.out.println("REMOVER... \n");
 						System.out.println("Qual o criterio? ");
 		                inteiro = scanner.nextInt();
 		                myClassCrit = new MyClass(inteiro, "");
-	                    System.out.println("result = " + listaSimples.remove(myClassCrit) + "\n");
+	                    System.out.println("result = " + lista1.remove(myClassCrit) + "\n");
 	                    break;
 	                    
 	            case 11: System.out.println("PERCORRER REVERSO (Lista Dupla)\n");
-        				listaSimples.showReverse();
+        				lista1.showReverse();
         				break;
 
 	            case 0: System.out.println("Saindo... \n");

@@ -1,4 +1,6 @@
-package pack2_listas_encadeadas.dupla;
+package pack2_listas_encadeadas.lista_dupla;
+
+
 
 import pack2_listas_encadeadas.comum.MyInterfaceListV2comID;
 

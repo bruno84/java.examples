@@ -3,7 +3,8 @@ package pack2_listas_encadeadas;
 import java.util.Scanner;
 
 import pack2_listas_encadeadas.comum.MyInterfaceListV2comID;
-import pack2_listas_encadeadas.simples.MyLinkedListSinglyV2comID;
+import pack2_listas_encadeadas.lista_simples.MyLinkedListSinglyV2comID;
+
 
 public class MainListasV2comID 
 {

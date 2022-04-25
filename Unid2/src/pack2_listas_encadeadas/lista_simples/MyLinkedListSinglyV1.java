@@ -1,4 +1,4 @@
-package pack2_listas_encadeadas.simples;
+package pack2_listas_encadeadas.lista_simples;
 
 import pack2_listas_encadeadas.comum.MyInterfaceListV1;
 

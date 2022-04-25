@@ -1,9 +1,9 @@
-package pack2_listas_encadeadas.dupla;
+package pack2_listas_encadeadas.lista_dupla;
 
 import pack2_listas_encadeadas.comum.MyInterfaceListV1;
 
 /**
- * Objetivo: Lista simplesmente encadeada, com generic.
+ * Objetivo: Lista suplamente encadeada, com generic.
  * @author Bruno Monteiro
  */
 public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
@@ -48,9 +48,7 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 	    {
 	        while( p != null )
 	        {
-	            System.out.println("\n");
-	            System.out.println("Dado: " + p.data );
-	            System.out.println("\n");
+	            System.out.println("\n Dado: " + p.data + "\n");
 	            
 	    	    p = p.next;
 	        }
@@ -58,6 +56,9 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 		
 		System.out.println("size = " + size + "\n");
 	}
+	
+	
+	
 	
 	public void showReverse()
 	{
@@ -70,9 +71,7 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 	    {
 	        while( p != null )
 	        {
-	            System.out.println("\n");
-	            System.out.println("Dado: " + p.data );
-	            System.out.println("\n");
+	            System.out.println("\n Dado: " + p.data );
 	            
 	    	    p = p.prev; // novidade
 	        }
@@ -83,6 +82,9 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 	
 	
 
+	
+	
+	
 	public void addFirst(T dado)
 	{
 		Node novo = new Node(dado);
@@ -101,6 +103,9 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 		
 		size++;
 	}
+	
+	
+	
 	
 
 	public void addLast(T dado)
@@ -124,6 +129,9 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 	}
 
 	
+	
+	
+	
 	public void addAfter(T dado, T criterio)
 	{
 		// Antecessor
@@ -138,7 +146,7 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 	        // Novo elemento 
 	        Node novo = new Node(dado);
 
-	        // Atualiza tail quando o elemento critério é o último
+	        // Atualiza tail quando o elemento criterio eh o ultimo
 	        if(p.next == null) {
 	        	tail = novo;
 	        }
@@ -240,7 +248,7 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
                 tail = null;
             } 
 			else {
-				System.out.println("Remove primeiro elemento, mas há mais outros\n");
+				System.out.println("Remove primeiro elemento, mas ha mais outros\n");
                 head = head.next;
                 head.prev = null; // novidade
 			}
@@ -274,7 +282,7 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
             } 
             else 
             {
-            	System.out.println("Remove ultimo elemento, mas há mais outros\n");
+            	System.out.println("Remove ultimo elemento, mas ha mais outros\n");
         		Node anterior = tail.prev;  // novidade
         		tail.prev = null;			// novidade
                 tail = anterior;			
@@ -290,6 +298,7 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 	}
 	
 	
+	
 	public T remove(T criterio)
 	{
 		T dadoRetorno = null;
@@ -300,56 +309,37 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 	    }
 
 		Node anterior = null;
-		Node removido = searchNode(criterio); // null: ID não existe OU ID está no 1o elemento
+		Node removido = searchNode(criterio); // null: criterio nao existe OU criterio esta no 1o elemento
 		
 		if(removido != null) {
 			anterior = removido.prev;  // evita nullpointer
 		}
 		
 		// OBS: vc pode usar a referencia de removido para alterar os IFs abaixo,
-		// porém, mantive a mesma estrutura usada na lista simples para facilitar.
+		// porem, mantive a mesma estrutura usada na lista simples para facilitar.
 		
 		if( anterior == null ) 
 		{
 			if( head.data.equals(criterio) == false )
 			{
-		        System.out.println("ID nao existe!!! \n");
+		        System.out.println("criterio nao existe!!! \n");
 		        return null;
 			}
 			else
 			{
-				removido = head;
-				
-				if( head == tail )
-				{
-					System.out.println("Remove o primeiro elemento, que é o unico \n");
-					head = null;
-					tail = null;
-					// OBS: nao precisa isolar elemento pois o next do tail é sempre null.
-				}				
-				else 
-				{
-					System.out.println("Remove o primeiro elemento, mas não é o único \n");
-	    			head = head.next;
-	    			head.prev = null; 		// novidade
-	            	removido.next = null; 	// isola elemento removido
-				}
+				return removeFirst();
 			}
 		}
 		else
 		{
 			System.out.println("Remove elemento meio ou ultimo \n");
 			
-			removido = anterior.next;
-
-			if(removido == tail) {
-				System.out.println("Remove ultimo \n");
-				tail.prev = null;		// novidade
-				tail = anterior;		// atualiza tail
-				tail.next = null;		// se desliga do elemento removido
-				// OBS: nao precisa isolar elemento removido pois o next do tail é sempre null.
+			if(removido == tail) 
+			{
+				return removeLast();
 			}
-			else {
+			else 
+			{
 				System.out.println("Remove meio \n");
 				Node frente = removido.next;	// var auxiliar
 				
@@ -360,13 +350,14 @@ public class MyLinkedListDoubleV1 <T> implements MyInterfaceListV1 <T>
 				// isola elemento removido
 				removido.next = null;
 				removido.prev = null;  // novidade
+				
+				size--;
+				
+				dadoRetorno = removido.data;
+				return dadoRetorno;
 			}
 		}
 
-		dadoRetorno = removido.data;
-		size--;
-		
-		return dadoRetorno;
 	}
 
 	
